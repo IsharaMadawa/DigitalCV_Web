@@ -3,6 +3,7 @@ import { Route, Redirect, Switch } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import NavBar from "./components/navBar";
 import Movies from "./components/movies";
+import cvHome from "./components/cvHome";
 import LoginForm from "./components/loginForm";
 import MovieForm from "./components/movieForm";
 import RegisterFrom from "./components/registerForm";
@@ -29,12 +30,13 @@ class App extends Component {
     return (
       <React.Fragment>
         <ToastContainer />
-        <NavBar user={user} />
+        {/* <NavBar user={user} /> */}
         <main className="container">
           <Switch>
             <Route path="/register" component={RegisterFrom} />
             <Route path="/login" component={LoginForm} />
             <Route path="/logout" component={Logout} />
+            <Route path="/cv" component={cvHome} />
             <ProtectedRoute path="/movies/:id" component={MovieForm} />
             <Route
               path="/movies"
@@ -43,7 +45,8 @@ class App extends Component {
             <Route path="/customers" component={Customers} />
             <Route path="/rentals" component={Rentals} />
             <Route path="/not-found" component={NotFound} />
-            <Redirect from="/" exact to="/movies" />
+            {/* <Redirect from="/" exact to="/movies" /> */}
+            <Redirect from="/" exact to="/cv" />
             <Redirect exact to="/not-found" />
           </Switch>
         </main>
