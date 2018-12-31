@@ -6,7 +6,6 @@ class CVAbout extends Component {
       <section
         className="resume-section p-3 p-lg-5 d-flex d-column"
         id="about"
-        ref={this.props.refProp}
       >
         <div className="my-auto">
           <h1 className="mb-0">
@@ -24,7 +23,7 @@ class CVAbout extends Component {
             proposition.
           </p>
           <div className="social-icons">
-            <a href="#">
+            {/* <a href="#">
               <i className="fab fa-linkedin-in" />
             </a>
             <a href="#">
@@ -35,7 +34,7 @@ class CVAbout extends Component {
             </a>
             <a href="#">
               <i className="fab fa-facebook-f" />
-            </a>
+            </a> */}
           </div>
         </div>
       </section>
