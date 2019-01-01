@@ -2,54 +2,21 @@ import React, { Component } from "react";
 import CVAbout from "./cv/about";
 import CVExeprience from "./cv/experience";
 import scrollToComponent from "react-scroll-to-component";
+import { getUserFacebookProfilePicture } from "../services/cvService";
 
 class cvHome extends Component {
-  componentDidMount() {
-    scrollToComponent(this.Blue, {
+  state = {
+    profilePicture: null
+  };
+
+  async componentDidMount() {
+    const profilePicture = await getUserFacebookProfilePicture();
+    scrollToComponent(this.cv_about, {
       offset: 0,
-      align: "middle",
-      duration: 500,
-      ease: "inCirc"
+      align: "top",
+      duration: 500
     });
-  }
-  //   render() {
-  //     return (
-  //       <div className='main'>
-  //         <div className='button_group'>
-  //           <button onClick={() => scrollToComponent(this.Violet, { offset: 0, align: 'top', duration: 1000})}>Go To Violet</button>
-  //           <button onClick={() => scrollToComponent(this.Indigo, { offset: 0, align: 'bottom', duration: 1000})}>Go To Indigo</button>
-  //           <button onClick={() => scrollToComponent(this.Blue, { offset: -200, align: 'middle', duration: 1500, ease:'inCirc'})}>Go To Blue</button>
-  //           <button onClick={() => scrollToComponent(this.Green, { offset: 0, align: 'middle', duration: 500, ease:'inExpo'})}>Go To Green</button>
-  //           <button onClick={() => scrollToComponent(this.Yellow, { offset: 0, align: 'top', duration: 1500, ease:'inCirc'})}>Go To Yellow</button>
-  //           <button onClick={() => scrollToComponent(this.Orange, { offset: 0, align: 'top', duration: 500, ease:'inCirc'})}>Go To Orange</button>
-  //           <button onClick={() => scrollToComponent(this.Red, { offset: 0, align: 'top', duration: 500})}>Go To Red</button>
-  //         </div>
-  //         <section className='violet' ref={(section) => { this.Violet = section; }}><CVAbout/></section>
-  //         <section className='indigo' ref={(section) => { this.Indigo = section; }}><CVExeprience/></section>
-  //         <section className='blue' ref={(section) => { this.Blue = section; }}>Blue</section>
-  //         <section className='green' ref={(section) => { this.Green = section; }}>Green</section>
-  //         <section className='yellow' ref={(section) => { this.Yellow = section; }}>Yellow</section>
-  //         <section className='orange' ref={(section) => { this.Orange = section; }}>Orange</section>
-  //         <section className='red' ref={(section) => { this.Red = section; }}>Red</section>
-  //         <b>Inspired By <a href="https://hopechen1028.github.io/hopechen.me/" target="_blank">Hope</a> with Love and Peace</b>
-  //       </div>
-  //     )
-  //   }
-  // }
-
-  constructor(props) {
-    super(props);
-    this.myRef = React.createRef();
-  }
-
-  handleScrollToElement(event) {
-    if (1 === 1) {
-      //window.scrollTo(0, this.myRef.current.offsetTop);
-      window.scrollTo({
-        top: this.myRef.current.offsetTop - 20,
-        behavior: "smooth"
-      });
-    }
+    this.setState({ profilePicture });
   }
 
   render() {
@@ -59,20 +26,26 @@ class cvHome extends Component {
           className="navbar navbar-expand-lg navbar-dark bg-primary fixed-top"
           id="sideNav"
         >
-          {/* <a
+          <a
             className="navbar-brand js-scroll-trigger"
-            ref={this.myRef}
-            href="#"
+            href="#cv_image"
+            onClick={() =>
+              scrollToComponent(this.cv_about, {
+                offset: 0,
+                align: "top",
+                duration: 1000
+              })
+            }
           >
             <span className="d-block d-lg-none">Clarence Taylor</span>
             <span className="d-none d-lg-block">
               <img
                 className="img-fluid img-profile rounded-circle mx-auto mb-2"
-                src="/utils/img/profile.jpg"
-                alt=""
+                src={this.state.profilePicture}
+                alt="madXish"
               />
             </span>
-          </a> */}
+          </a>
           <button
             className="navbar-toggler"
             type="button"
@@ -87,9 +60,11 @@ class cvHome extends Component {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <button
+                <a
+                  className="nav-link js-scroll-trigger"
+                  href="#cv_about"
                   onClick={() =>
-                    scrollToComponent(this.Violet, {
+                    scrollToComponent(this.cv_about, {
                       offset: 0,
                       align: "top",
                       duration: 1000
@@ -97,95 +72,90 @@ class cvHome extends Component {
                   }
                 >
                   About
-                </button>
-                <button
+                </a>
+                <a
+                  className="nav-link js-scroll-trigger"
+                  href="#cv_exprience"
                   onClick={() =>
-                    scrollToComponent(this.Indigo, {
+                    scrollToComponent(this.cv_exprience, {
                       offset: 0,
-                      align: "bottom",
+                      align: "top",
                       duration: 1000
                     })
                   }
                 >
                   Exprience
-                </button>
-                {/* <a
-                  className="nav-link js-scroll-trigger"
-                  ref={this.myRef}
-                  href="#"
-                  onClick={() => this.handleScrollToElement(this)}
-                >
-                  About
-                </a> */}
-                {/* <button
-                  className="nav-link js-scroll-trigger"
-                  onClick={() => this.handleScrollToElement(this)}
-                >
-                  About
-                </button>
-              </li>
-              <li className="nav-item">
-                <button
-                  className="nav-link js-scroll-trigger"
-                  onClick={() => this.handleScrollToElement(this)}
-                >
-                  Experience
-                </button>
-              </li> */}
-                {/* <li className="nav-item">
+                </a>
                 <a
                   className="nav-link js-scroll-trigger"
-                  ref={this.myRef}
-                  href="#"
+                  href="#cv_education"
+                  onClick={() =>
+                    scrollToComponent(this.cv_education, {
+                      offset: 0,
+                      align: "top",
+                      duration: 1000
+                    })
+                  }
                 >
                   Education
                 </a>
-              </li>
-              <li className="nav-item">
                 <a
                   className="nav-link js-scroll-trigger"
-                  ref={this.myRef}
-                  href="#"
+                  href="#cv_skills"
+                  onClick={() =>
+                    scrollToComponent(this.cv_skills, {
+                      offset: 0,
+                      align: "top",
+                      duration: 1000
+                    })
+                  }
                 >
                   Skills
                 </a>
-              </li>
-              <li className="nav-item">
                 <a
                   className="nav-link js-scroll-trigger"
-                  ref={this.myRef}
-                  href="#"
+                  href="#cv_interests"
+                  onClick={() =>
+                    scrollToComponent(this.cv_interests, {
+                      offset: 0,
+                      align: "top",
+                      duration: 1000
+                    })
+                  }
                 >
                   Interests
                 </a>
-              </li>
-              <li className="nav-item">
                 <a
                   className="nav-link js-scroll-trigger"
-                  ref={this.myRef}
-                  href="#"
+                  href="#cv_awards"
+                  onClick={() =>
+                    scrollToComponent(this.cv_awards, {
+                      offset: 0,
+                      align: "top",
+                      duration: 1000
+                    })
+                  }
                 >
                   Awards
                 </a>
-               */}
               </li>
             </ul>
           </div>
         </nav>
         <div className="container-fluid p-0">
           <section
-            className="violet"
+            className=""
             ref={section => {
-              this.Violet = section;
+              this.cv_about = section;
             }}
           >
             <CVAbout />
           </section>
           <hr className="m-0" />
           <section
-            className="indigo"
+            className=""
             ref={section => {
-              this.Indigo = section;
+              this.cv_exprience = section;
             }}
           >
             <CVExeprience />
