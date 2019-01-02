@@ -2,14 +2,14 @@ import React, { Component } from "react";
 
 class CVAbout extends Component {
   render() {
+    const { cvDetails } = this.props;
+    const userCV = cvDetails;
+    console.log( userCV);
     return (
-      <section
-        className="resume-section p-3 p-lg-5 d-flex d-column"
-        id="about"
-      >
+      <section className="resume-section p-3 p-lg-5 d-flex d-column" id="about">
         <div className="my-auto">
           <h1 className="mb-0">
-            Clarence
+            {/* {userCV.user.name} */}
             <span className="text-primary">Taylor</span>
           </h1>
           <div className="subheading mb-5">

@@ -1,4 +1,4 @@
-import staticPhoto from "./../utils/img/profile.jpg";
+import staticPhoto from "./../utils/img/profile.png";
 import http from "./httpService";
 
 export function getUserFacebookProfilePicture() {
@@ -9,4 +9,8 @@ export function getUserFacebookProfilePicture() {
   } else {
     return staticPhoto;
   }
+}
+
+export function getUserCVDetails() {
+  return http.get("http://localhost:3000/api/usercvdetails");
 }
