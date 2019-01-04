@@ -1,11 +1,17 @@
 import React, { Component } from "react";
+import scrollToComponent from "react-scroll-to-component";
 import CVAbout from "./cv/about";
 import CVExeprience from "./cv/experience";
-import scrollToComponent from "react-scroll-to-component";
+import CVEducation from "./cv/education";
+import CVSkills from "./cv/skills";
+import CVInterests from "./cv/interest";
+import CVProjects from "./cv/projects";
+import CVReferees from "./cv/referees";
 import {
   getUserFacebookProfilePicture,
   getUserCVDetails
 } from "../services/cvService";
+import loadingMask from "./../utils/img/loading_mask.gif";
 
 class cvHome extends Component {
   state = {
@@ -124,6 +130,19 @@ class cvHome extends Component {
                     </a>
                     <a
                       className="nav-link js-scroll-trigger"
+                      href="#cv_skills"
+                      onClick={() =>
+                        scrollToComponent(this.cv_projects, {
+                          offset: 0,
+                          align: "top",
+                          duration: 1000
+                        })
+                      }
+                    >
+                      Proijects
+                    </a>
+                    <a
+                      className="nav-link js-scroll-trigger"
                       href="#cv_interests"
                       onClick={() =>
                         scrollToComponent(this.cv_interests, {
@@ -135,7 +154,7 @@ class cvHome extends Component {
                     >
                       Interests
                     </a>
-                    <a
+                    {/* <a
                       className="nav-link js-scroll-trigger"
                       href="#cv_awards"
                       onClick={() =>
@@ -147,6 +166,19 @@ class cvHome extends Component {
                       }
                     >
                       Awards
+                    </a> */}
+                    <a
+                      className="nav-link js-scroll-trigger"
+                      href="#cv_referees"
+                      onClick={() =>
+                        scrollToComponent(this.cv_referees, {
+                          offset: 0,
+                          align: "top",
+                          duration: 1000
+                        })
+                      }
+                    >
+                      Referees
                     </a>
                   </li>
                 </ul>
@@ -170,12 +202,71 @@ class cvHome extends Component {
               >
                 <CVExeprience />
               </section>
+              <hr className="m-0" />
+              <section
+                className=""
+                ref={section => {
+                  this.cv_education = section;
+                }}
+              >
+                <CVEducation />
+              </section>
+              <hr className="m-0" />
+              <section
+                className=""
+                ref={section => {
+                  this.cv_skills = section;
+                }}
+              >
+                <CVSkills />
+              </section>
+              <hr className="m-0" />
+              <section
+                className=""
+                ref={section => {
+                  this.cv_projects = section;
+                }}
+              >
+                <CVProjects />
+              </section>
+              <hr className="m-0" />
+              <section
+                className=""
+                ref={section => {
+                  this.cv_interests = section;
+                }}
+              >
+                <CVInterests />
+              </section>
+              {/* <hr className="m-0" />
+              <section
+                className=""
+                ref={section => {
+                  this.cv_awards = section;
+                }}
+              >
+                <CVAwards />
+              </section> */}
+              <hr className="m-0" />
+              <section
+                className=""
+                ref={section => {
+                  this.cv_referees = section;
+                }}
+              >
+                <CVReferees />
+              </section>
             </div>
           </React.Fragment>
         );
-      }
-      else{
-        return <div>Loading...</div>;
+      } else {
+        return (
+          <div>
+            <div id="loading-mask">
+              <img id="loading-mask-image" src={loadingMask} alt="Loading..." />
+            </div>
+          </div>
+        );
       }
     }
   }
