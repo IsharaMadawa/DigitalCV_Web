@@ -139,7 +139,7 @@ class cvHome extends Component {
                         })
                       }
                     >
-                      Proijects
+                      Projects
                     </a>
                     <a
                       className="nav-link js-scroll-trigger"
@@ -209,7 +209,7 @@ class cvHome extends Component {
                   this.cv_education = section;
                 }}
               >
-                <CVEducation />
+                <CVEducation  cvDetails={this.state.cvDetails}/>
               </section>
               <hr className="m-0" />
               <section

@@ -10,8 +10,8 @@ const CVAbout = ({ cvDetails }) => {
           <span className="text-primary">.</span>
         </h1>
         <div className="subheading mb-5">
-          3542 Berry Street · Cheyenne Wells, CO 80810 · (317) 585-8468 ·
-          <a href="mailto:name@email.com">name@email.com</a>
+          {userCV.user.address} {userCV.user.Mobile}
+          <a href={userCV.user.email}>{userCV.user.email}</a>
         </div>
         <p className="lead mb-5">
           I am experienced in leveraging agile frameworks to provide a robust
@@ -20,18 +20,18 @@ const CVAbout = ({ cvDetails }) => {
           proposition.
         </p>
         <div className="social-icons">
-          {/* <a href="#">
-              <i className="fab fa-linkedin-in" />
-            </a>
-            <a href="#">
-              <i className="fab fa-github" />
-            </a>
-            <a href="#">
-              <i className="fab fa-twitter" />
-            </a>
-            <a href="#">
-              <i className="fab fa-facebook-f" />
-            </a> */}
+          <a href="#icon">
+            <i className="fa fa-linkedin-in" />
+          </a>
+          <a href="#icon">
+            <i className="fa fa-github" />
+          </a>
+          <a href="#icon">
+            <i className="fa fa-twitter" />
+          </a>
+          <a href="#icon">
+            <i className="fa fa-facebook-f" />
+          </a>
         </div>
       </div>
     </section>
