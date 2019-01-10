@@ -16,9 +16,8 @@ const CVEducation = ({ cvDetails }) => {
           >
             <div className="resume-content mr-auto">
               <h3 className="mb-0">{edu.institute}</h3>
-              <div className="subheading mb-3">{edu.title}</div>
-              {/* <div>Computer Science - Web Development Track</div> */}
-              <p>{edu.marks}</p>
+              <div className="subheading mb-4">{edu.title}</div>
+              <h4><span class="badge badge-secondary">{edu.marks}</span></h4>
             </div>
             <div className="resume-date text-md-right">
               <span className="text-primary">{edu.duration}</span>

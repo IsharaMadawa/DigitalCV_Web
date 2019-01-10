@@ -1,5 +1,12 @@
 import React from "react";
 
+import linkedinIcon from "./../../utils/icon/linkedin-icon.png";
+import githubIcon from "./../../utils/icon/github-icon.png";
+import bitbucketIcon from "./../../utils/icon/bitbucket-icon.png";
+import facebookIcon from "./../../utils/icon/Blogger.png";
+import bloggerIcon from "./../../utils/icon/facebook-icon.png";
+import twitterIcon from "./../../utils/icon/twitter-icon.png";
+
 const CVAbout = ({ cvDetails }) => {
   const userCV = cvDetails.data[0];
   return (
@@ -13,21 +20,25 @@ const CVAbout = ({ cvDetails }) => {
           {userCV.user.address} {userCV.user.Mobile}
           <a href={userCV.user.email}>{userCV.user.email}</a>
         </div>
-        <p className="lead mb-5">
-          {userCV.user.myself}
-        </p>
+        <p className="lead mb-5">{userCV.user.myself}</p>
         <div className="social-icons">
           <a href="#icon">
-            <i className="fa fa-linkedin-in" />
+            <img src={linkedinIcon} alt="Linked-In" class="img-thumbnail" />
           </a>
           <a href="#icon">
-            <i className="fa fa-github" />
+            <img src={githubIcon} alt="Github" class="img-thumbnail" />
           </a>
           <a href="#icon">
-            <i className="fa fa-twitter" />
+          <img src={bitbucketIcon} alt="Bit-Bucket" class="img-thumbnail" />
           </a>
           <a href="#icon">
-            <i className="fa fa-facebook-f" />
+          <img src={facebookIcon} alt="facebook" class="img-thumbnail" />
+          </a>
+          <a href="#icon">
+          <img src={bloggerIcon} alt="blogger" class="img-thumbnail" />
+          </a>
+          <a href="#icon">
+          <img src={twitterIcon} alt="twitter" class="img-thumbnail" />
           </a>
         </div>
       </div>
