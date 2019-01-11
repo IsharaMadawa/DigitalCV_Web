@@ -1,12 +1,5 @@
 import React from "react";
 
-import linkedinIcon from "./../../utils/icon/linkedin-icon.png";
-import githubIcon from "./../../utils/icon/github-icon.png";
-import bitbucketIcon from "./../../utils/icon/bitbucket-icon.png";
-import facebookIcon from "./../../utils/icon/Blogger.png";
-import bloggerIcon from "./../../utils/icon/facebook-icon.png";
-import twitterIcon from "./../../utils/icon/twitter-icon.png";
-
 const CVAbout = ({ cvDetails }) => {
   const userCV = cvDetails.data[0];
   return (
@@ -22,24 +15,33 @@ const CVAbout = ({ cvDetails }) => {
         </div>
         <p className="lead mb-5">{userCV.user.myself}</p>
         <div className="social-icons">
-          <a href="#icon">
-            <img src={linkedinIcon} alt="Linked-In" class="img-thumbnail" />
-          </a>
-          <a href="#icon">
-            <img src={githubIcon} alt="Github" class="img-thumbnail" />
-          </a>
-          <a href="#icon">
-          <img src={bitbucketIcon} alt="Bit-Bucket" class="img-thumbnail" />
-          </a>
-          <a href="#icon">
-          <img src={facebookIcon} alt="facebook" class="img-thumbnail" />
-          </a>
-          <a href="#icon">
-          <img src={bloggerIcon} alt="blogger" class="img-thumbnail" />
-          </a>
-          <a href="#icon">
-          <img src={twitterIcon} alt="twitter" class="img-thumbnail" />
-          </a>
+          {userCV.user.blogging.map(blog => (
+            <a key={blog.site} href={blog.url}>
+              <img
+                src={blog.iconPath}
+                alt={blog.site}
+                className="img-thumbnail"
+              />
+            </a>
+          ))}
+          {userCV.svn.map(blog => (
+            <a key={blog.site} href={blog.url}>
+              <img
+                src={blog.iconPath}
+                alt={blog.site}
+                className="img-thumbnail"
+              />
+            </a>
+          ))}
+          {userCV.user.social.map(blog => (
+            <a key={blog.site} href={blog.url}>
+              <img
+                src={blog.iconPath}
+                alt={blog.site}
+                className="img-thumbnail"
+              />
+            </a>
+          ))}
         </div>
       </div>
     </section>

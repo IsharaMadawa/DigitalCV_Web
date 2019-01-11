@@ -7,11 +7,9 @@ import CVSkills from "./cv/skills";
 import CVInterests from "./cv/interest";
 import CVProjects from "./cv/projects";
 import CVReferees from "./cv/referees";
-import {
-  getUserFacebookProfilePicture,
-  getUserCVDetails
-} from "../services/cvService";
+import { getUserCVDetails } from "../services/cvService";
 import loadingMask from "./../utils/img/loading_mask.gif";
+import localPhoto from "./../utils/img/profile.png";
 
 class cvHome extends Component {
   state = {
@@ -20,8 +18,9 @@ class cvHome extends Component {
   };
 
   async componentDidMount() {
-    const profilePicture = await getUserFacebookProfilePicture();
     const cvDetails = await getUserCVDetails();
+    let profilePicture = cvDetails.data[0].user.profileImage.filter(x => x.isActive === true)[0];
+    profilePicture = profilePicture.isLocal === true ? localPhoto : profilePicture.path;
     scrollToComponent(this.cv_about, {
       offset: 0,
       align: "top",
@@ -200,7 +199,7 @@ class cvHome extends Component {
                   this.cv_exprience = section;
                 }}
               >
-                <CVExeprience />
+                <CVExeprience cvDetails={this.state.cvDetails}/>
               </section>
               <hr className="m-0" />
               <section
@@ -209,7 +208,7 @@ class cvHome extends Component {
                   this.cv_education = section;
                 }}
               >
-                <CVEducation  cvDetails={this.state.cvDetails}/>
+                <CVEducation cvDetails={this.state.cvDetails} />
               </section>
               <hr className="m-0" />
               <section
