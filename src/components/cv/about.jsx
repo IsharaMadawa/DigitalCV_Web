@@ -11,7 +11,7 @@ const CVAbout = ({ cvDetails }) => {
         </h1>
         <div className="subheading mb-5">
           {userCV.user.address} {userCV.user.Mobile}
-          <a href={userCV.user.email}>{userCV.user.email}</a>
+          <a href={"mailto:" + userCV.user.email}>{userCV.user.email}</a>
         </div>
         <p className="lead mb-5">{userCV.user.myself}</p>
         <div className="social-icons">

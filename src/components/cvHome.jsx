@@ -19,8 +19,11 @@ class cvHome extends Component {
 
   async componentDidMount() {
     const cvDetails = await getUserCVDetails();
-    let profilePicture = cvDetails.data[0].user.profileImage.filter(x => x.isActive === true)[0];
-    profilePicture = profilePicture.isLocal === true ? localPhoto : profilePicture.path;
+    let profilePicture = cvDetails.data[0].user.profileImage.filter(
+      x => x.isActive === true
+    )[0];
+    profilePicture =
+      profilePicture.isLocal === true ? localPhoto : profilePicture.path;
     scrollToComponent(this.cv_about, {
       offset: 0,
       align: "top",
@@ -49,7 +52,9 @@ class cvHome extends Component {
                   })
                 }
               >
-                <span className="d-block d-lg-none">Clarence Taylor</span>
+                <span className="d-block d-lg-none">
+                  {this.state.cvDetails.data[0].user.name}
+                </span>
                 <span className="d-none d-lg-block">
                   <img
                     className="img-fluid img-profile rounded-circle mx-auto mb-2"
@@ -199,7 +204,7 @@ class cvHome extends Component {
                   this.cv_exprience = section;
                 }}
               >
-                <CVExeprience cvDetails={this.state.cvDetails}/>
+                <CVExeprience cvDetails={this.state.cvDetails} />
               </section>
               <hr className="m-0" />
               <section
@@ -235,7 +240,7 @@ class cvHome extends Component {
                   this.cv_interests = section;
                 }}
               >
-                <CVInterests />
+                <CVInterests cvDetails={this.state.cvDetails}/>
               </section>
               {/* <hr className="m-0" />
               <section
@@ -253,7 +258,7 @@ class cvHome extends Component {
                   this.cv_referees = section;
                 }}
               >
-                <CVReferees />
+                <CVReferees cvDetails={this.state.cvDetails} />
               </section>
             </div>
           </React.Fragment>
