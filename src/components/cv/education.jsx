@@ -15,8 +15,8 @@ const CVEducation = ({ cvDetails }) => {
             className="resume-item d-flex flex-column flex-md-row mb-5"
           >
             <div className="resume-content mr-auto">
-              <h3 className="mb-0">{edu.institute}</h3>
-              <div className="subheading mb-4">{edu.title}</div>
+              <h3 className="mb-3">{edu.institute}</h3>
+              <div className="subheading mb-0">{edu.title}</div>
               <h4><span className="badge badge-secondary">{edu.marks}</span></h4>
             </div>
             <div className="resume-date text-md-right">

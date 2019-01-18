@@ -158,19 +158,6 @@ class cvHome extends Component {
                     >
                       Interests
                     </a>
-                    {/* <a
-                      className="nav-link js-scroll-trigger"
-                      href="#cv_awards"
-                      onClick={() =>
-                        scrollToComponent(this.cv_awards, {
-                          offset: 0,
-                          align: "top",
-                          duration: 1000
-                        })
-                      }
-                    >
-                      Awards
-                    </a> */}
                     <a
                       className="nav-link js-scroll-trigger"
                       href="#cv_referees"
@@ -222,7 +209,7 @@ class cvHome extends Component {
                   this.cv_skills = section;
                 }}
               >
-                <CVSkills />
+                <CVSkills cvDetails={this.state.cvDetails} />
               </section>
               <hr className="m-0" />
               <section
@@ -231,7 +218,7 @@ class cvHome extends Component {
                   this.cv_projects = section;
                 }}
               >
-                <CVProjects />
+                <CVProjects cvDetails={this.state.cvDetails} />
               </section>
               <hr className="m-0" />
               <section
@@ -240,17 +227,8 @@ class cvHome extends Component {
                   this.cv_interests = section;
                 }}
               >
-                <CVInterests cvDetails={this.state.cvDetails}/>
+                <CVInterests cvDetails={this.state.cvDetails} />
               </section>
-              {/* <hr className="m-0" />
-              <section
-                className=""
-                ref={section => {
-                  this.cv_awards = section;
-                }}
-              >
-                <CVAwards />
-              </section> */}
               <hr className="m-0" />
               <section
                 className=""
