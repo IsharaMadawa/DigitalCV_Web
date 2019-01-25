@@ -1,6 +1,7 @@
 import React from "react";
 
-const CVProjects = ({cvDetails}) => {
+const CVProjects = ({ cvDetails }) => {
+  const userCV = cvDetails.data[0];
   return (
     <section
       className="resume-section p-3 p-lg-5 d-flex flex-column"
@@ -9,28 +10,35 @@ const CVProjects = ({cvDetails}) => {
       <div className="my-auto">
         <h2 className="mb-5">Projects</h2>
 
-        <div className="resume-item d-flex flex-column flex-md-row mb-5">
-          <div className="resume-content mr-auto">
-            <h3 className="mb-0">Referee 1</h3>
-            <div className="subheading mb-3">Bachelor of Science</div>
-            <div>Computer Science - Web Development Track</div>
-            <p>GPA: 3.23</p>
-          </div>
-          <div className="resume-date text-md-right">
-            <span className="text-primary">August 2006 - May 2010</span>
-          </div>
-        </div>
+        {userCV.projects.map(proj => (
+          <div
+            key={proj._id}
+            className="resume-item d-flex flex-column flex-md-row mb-5"
+          >
+            <div className="resume-content mr-auto">
+              <h3 className="mb-0">
+                {proj.name}{" "}
+                {proj.title != "" ? " - (" + proj.title + ")" : null}
+              </h3>
+              <h4>
+                {proj.company === "Hobby" ? (
+                  <span className="badge badge-success mr-2">For Hobby</span>
+                ) : (
+                  <span className="badge badge-secondary mr-2">
+                    Company : {proj.company}
+                  </span>
+                )}
 
-        <div className="resume-item d-flex flex-column flex-md-row">
-          <div className="resume-content mr-auto">
-            <h3 className="mb-0">Referee 2</h3>
-            <div className="subheading mb-3">Technology Magnet Program</div>
-            <p>GPA: 3.56</p>
+                {proj.MostReasonHighlights === true ? (
+                  <span className="badge badge-danger mr-2">
+                    Most Reason Highlights
+                  </span>
+                ) : null}
+              </h4>
+              <p>{proj.details}</p>
+            </div>
           </div>
-          <div className="resume-date text-md-right">
-            <span className="text-primary">August 2002 - May 2006</span>
-          </div>
-        </div>
+        ))}
       </div>
     </section>
   );

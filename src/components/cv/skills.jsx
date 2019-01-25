@@ -8,7 +8,7 @@ const CVSkills = ({ cvDetails }) => {
       id="skills"
     >
       <div className="my-auto">
-        <h2>Skills</h2>
+        <h2>Skills & Tools</h2>
         <div className="row">
           {userCV.skillSet.map(skill => (
             <div key={skill._id} className="col-sm-4 mb-3">

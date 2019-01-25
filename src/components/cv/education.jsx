@@ -12,15 +12,18 @@ const CVEducation = ({ cvDetails }) => {
         {userCV.education.map(edu => (
           <div
             key={edu.title}
-            className="resume-item d-flex flex-column flex-md-row mb-5"
+            className="resume-item mb-5"
           >
             <div className="resume-content mr-auto">
-              <h3 className="mb-3">{edu.institute}</h3>
+              <h3 className="mb-0">
+                {edu.institute}
+                <b className="text-secondary ml-3">{"(" + edu.duration + ")"}</b>
+              </h3>
               <div className="subheading mb-0">{edu.title}</div>
-              <h4><span className="badge badge-secondary">{edu.marks}</span></h4>
-            </div>
-            <div className="resume-date text-md-right">
-              <span className="text-primary">{edu.duration}</span>
+              <h4 className="mb-5">
+                <span className="badge badge-secondary">{edu.marks}</span>
+              </h4>
+              <hr/>
             </div>
           </div>
         ))}
