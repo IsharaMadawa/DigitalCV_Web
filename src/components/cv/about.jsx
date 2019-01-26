@@ -16,7 +16,7 @@ const CVAbout = ({ cvDetails }) => {
         <p className="lead mb-5">{userCV.user.myself}</p>
         <div className="social-icons">
           {userCV.user.blogging.map(blog => (
-            <a key={blog.site} href={blog.url} target="_blank">
+            <a key={blog.site} href={blog.url} target="_blank"rel="noopener noreferrer">
               <img
                 src={blog.iconPath}
                 alt={blog.site}
@@ -25,7 +25,7 @@ const CVAbout = ({ cvDetails }) => {
             </a>
           ))}
           {userCV.svn.map(blog => (
-            <a key={blog.site} href={blog.url} target="_blank">
+            <a key={blog.site} href={blog.url} target="_blank" rel="noopener noreferrer">
               <img
                 src={blog.iconPath}
                 alt={blog.site}
@@ -34,7 +34,7 @@ const CVAbout = ({ cvDetails }) => {
             </a>
           ))}
           {userCV.user.social.map(blog => (
-            <a key={blog.site} href={blog.url} target="_blank">
+            <a key={blog.site} href={blog.url} target="_blank" rel="noopener noreferrer">
               <img
                 src={blog.iconPath}
                 alt={blog.site}

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import scrollToComponent from "react-scroll-to-component";
+import { saveAs } from 'file-saver';
 import CVAbout from "./cv/about";
 import CVExeprience from "./cv/experience";
 import CVEducation from "./cv/education";
@@ -7,7 +8,7 @@ import CVSkills from "./cv/skills";
 import CVInterests from "./cv/interest";
 import CVProjects from "./cv/projects";
 import CVReferees from "./cv/referees";
-import { getUserCVDetails } from "../services/cvService";
+import { getUserCVDetails, downloadCV } from "../services/cvService";
 import loadingMask from "./../utils/img/loading_mask.gif";
 import localPhoto from "./../utils/img/profile.png";
 
@@ -31,6 +32,14 @@ class cvHome extends Component {
     });
     this.setState({ profilePicture, cvDetails });
   }
+
+  downloadFile = async () => {
+    const fileData = await downloadCV();
+    // var filename = this.extractFileName(
+    //   fileData.headers["content-disposition"]
+    // );
+    saveAs(fileData, "cvvv");
+  };
 
   render() {
     if (this.state.cvDetails !== null) {
@@ -171,6 +180,12 @@ class cvHome extends Component {
                     >
                       Referees
                     </a>
+                    <input
+                      type="button"
+                      onClick={this.downloadFile}
+                      className="btn btn-light font-weight-bold"
+                      value="Download CV"
+                    />
                   </li>
                 </ul>
               </div>

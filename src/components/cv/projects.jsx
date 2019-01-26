@@ -18,7 +18,7 @@ const CVProjects = ({ cvDetails }) => {
             <div className="resume-content mr-auto">
               <h3 className="mb-0">
                 {proj.name}{" "}
-                {proj.title != "" ? " - (" + proj.title + ")" : null}
+                {proj.title !== "" ? " - (" + proj.title + ")" : null}
               </h3>
               <h4>
                 {proj.company === "Hobby" ? (
