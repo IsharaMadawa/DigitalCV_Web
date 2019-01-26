@@ -8,9 +8,9 @@ const CVSkills = ({ cvDetails }) => {
       id="skills"
     >
       <div className="my-auto">
-        <h2>Skills & Tools</h2>
+        <h2 className="mb-5">Skills & Tools</h2>
         <div className="row">
-          {userCV.skillSet.map(skill => (
+          {/* {userCV.skillSet.map(skill => (
             <div key={skill._id} className="col-sm-4 mb-3">
               <div className="card border-dark">
                 <div className="card-header skillHeaders">
@@ -26,6 +26,16 @@ const CVSkills = ({ cvDetails }) => {
                   ))}
                 </div>
               </div>
+            </div>
+          ))} */}
+          {userCV.skillSet.map(skill => (
+            <div key={skill._id} className="col-sm-12 mb-3">
+              <b>{skill.title} : </b>
+              {skill.skills.map((ski, i) => (
+                <i key={ski} className="text-secondary">
+                  {skill.skills.length === i + 1 ? ski : ski + "/ "}
+                </i>
+              ))}
             </div>
           ))}
         </div>
