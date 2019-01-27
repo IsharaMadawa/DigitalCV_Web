@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import scrollToComponent from "react-scroll-to-component";
-import { saveAs } from 'file-saver';
+import { saveAs } from "file-saver";
 import CVAbout from "./cv/about";
 import CVExeprience from "./cv/experience";
 import CVEducation from "./cv/education";
@@ -35,10 +35,7 @@ class cvHome extends Component {
 
   downloadFile = async () => {
     const fileData = await downloadCV();
-    // var filename = this.extractFileName(
-    //   fileData.headers["content-disposition"]
-    // );
-    saveAs(fileData, "cvvv");
+    saveAs(fileData.data, "CV - Ishara Madawa");
   };
 
   render() {
