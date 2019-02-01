@@ -8,6 +8,7 @@ import CVSkills from "./cv/skills";
 import CVInterests from "./cv/interest";
 import CVProjects from "./cv/projects";
 import CVReferees from "./cv/referees";
+import CVDownloadModel from "./common/CVDownloadModel";
 import { getUserCVDetails, downloadCV } from "../services/cvService";
 import loadingMask from "./../utils/img/loading_mask.gif";
 import localPhoto from "./../utils/img/profile.png";
@@ -177,12 +178,7 @@ class cvHome extends Component {
                     >
                       Referees
                     </a>
-                    <input
-                      type="button"
-                      onClick={this.downloadFile}
-                      className="btn btn-light font-weight-bold"
-                      value="Download CV"
-                    />
+                    <CVDownloadModel onDownload={this.downloadFile} />
                   </li>
                 </ul>
               </div>
