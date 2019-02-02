@@ -23,7 +23,7 @@ const CVReferees = ({ cvDetails }) => {
                 <b>Company</b> : {ref.organization}
               </div>
               <div>
-                <b>E-Mail</b> : {"mailto:" + ref.email}
+                <b>E-Mail</b> :<a href={"mailto:" + ref.email}>{ref.email}</a>
               </div>
               {ref.mobileNo.map(mob => (
                 <div key={mob}>
