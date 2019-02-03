@@ -5,7 +5,7 @@ const CVAbout = ({ cvDetails }) => {
   return (
     <section className="resume-section p-3 p-lg-5 d-flex d-column" id="about">
       <div className="my-auto">
-        <h1 className="mb-0">
+        <h1 className="mb-0 responsivename">
           {userCV.user.name}
           <span className="text-primary">.</span>
         </h1>
