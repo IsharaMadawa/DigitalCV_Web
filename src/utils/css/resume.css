@@ -9,6 +9,19 @@
     font-size:8vw;
   }
 
+  @media (max-width: 992px) {
+    .responsivename {
+      line-height: 4rem;
+    }
+  }
+
+  
+  @media (max-width: 640px) {
+    .responsivename {
+      line-height: 2rem;
+    }
+  }
+
 h1,
 h2,
 h3,
@@ -68,6 +81,10 @@ p.lead {
 
 .dev-icons .list-inline-item i:hover {
   color: #bd5d38;
+}
+
+.modal-header-color{
+  background-color: #bd5d38;
 }
 
 #sideNav .navbar-nav .nav-item .nav-link {

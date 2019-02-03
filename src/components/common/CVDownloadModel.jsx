@@ -51,7 +51,7 @@ class CVDownloadModel extends Component {
           style={customStyles}
           contentLabel="Example Modal"
         >
-          <div className="modal-header bg-success">
+          <div className="modal-header modal-header-color">
             <h5 className="modal-title text-white">Download CV</h5>
             <button
               type="button"
