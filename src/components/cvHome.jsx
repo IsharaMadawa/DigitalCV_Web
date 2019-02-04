@@ -253,7 +253,7 @@ class cvHome extends Component {
         return (
           <div>
             <div id="loading-mask">
-              <img id="loading-mask-image" src={loadingMask} alt="Loading..." />
+              {/* <img id="loading-mask-image" src={loadingMask} alt="Loading..." /> */}
             </div>
           </div>
         );

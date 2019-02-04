@@ -5,6 +5,23 @@
   }
 }
 
+#loading-mask {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background: url('../img/loading_mask.gif') no-repeat center white;
+  /* opacity: 0.8; */
+  filter: alpha(opacity=50); /* For IE8 and earlier */
+  text-align: center;
+  padding: 10px;
+  font: normal 16px Tahoma, Geneva, sans-serif;
+  border: 1px solid #666;
+  z-index: 2;
+  overflow: auto;
+}
+
+
 .responsivename {
     font-size:8vw;
   }
@@ -19,6 +36,18 @@
   @media (max-width: 640px) {
     .responsivename {
       line-height: 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .responsivename {
+      line-height: 6.5rem;
+    }
+  }
+
+  @media (min-width: 2000px) {
+    .responsivename {
+      line-height: 14.5rem;
     }
   }
 
