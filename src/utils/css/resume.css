@@ -32,10 +32,19 @@
     }
   }
 
+  @media (max-width: 470px) {
+    .hideHedding {
+      display: none;
+    }
+  }
   
   @media (max-width: 640px) {
     .responsivename {
       line-height: 2rem;
+    }
+
+    .subheading{
+      line-height: 1.4rem;
     }
   }
 

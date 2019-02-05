@@ -11,7 +11,7 @@ const CVAbout = ({ cvDetails }) => {
             <span className="text-primary">.</span>
           </h1>
         </div>
-        <div className="subheading mb-5">
+        <div className="subheading hideHedding mb-5">
           {userCV.user.address} {userCV.user.Mobile}
           <a href={"mailto:" + userCV.user.email}>{userCV.user.email}</a>
         </div>
