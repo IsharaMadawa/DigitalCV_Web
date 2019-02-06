@@ -3,6 +3,24 @@
     padding-top: 0;
     padding-left: 17rem;
   }
+
+  .cvdownloadPopupMenu {
+    display: inline;
+  }
+
+  .cvdownloadPopupAbout {
+    display: none;
+  }
+}
+
+@media (max-width: 992px) {
+  .cvdownloadPopupMenu {
+    display: none;
+  }
+
+  .cvdownloadPopupAbout {
+    display: inline;
+  }
 }
 
 #loading-mask {
@@ -10,7 +28,7 @@
   width: 100%;
   height: 100%;
   position: fixed;
-  background: url('../img/loading_mask.gif') no-repeat center white;
+  background: url("../img/loading_mask.gif") no-repeat center white;
   /* opacity: 0.8; */
   filter: alpha(opacity=50); /* For IE8 and earlier */
   text-align: center;
@@ -21,52 +39,56 @@
   overflow: auto;
 }
 
-
 .responsivename {
-    font-size:8vw;
+  font-size: 8vw;
+}
+
+.user-email {
+  font-size: 3vw;
+  text-transform: uppercase;
+}
+
+@media (max-width: 992px) {
+  .responsivename {
+    line-height: 4rem;
+  }
+}
+
+@media (max-width: 470px) {
+  .hideHedding {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .responsivename {
+    line-height: 2rem;
   }
 
-  @media (max-width: 992px) {
-    .responsivename {
-      line-height: 4rem;
-    }
+  .subheading {
+    line-height: 1.4rem;
   }
+}
 
-  @media (max-width: 470px) {
-    .hideHedding {
-      display: none;
-    }
+@media (min-width: 1024px) {
+  .responsivename {
+    line-height: 6.5rem;
   }
-  
-  @media (max-width: 640px) {
-    .responsivename {
-      line-height: 2rem;
-    }
+}
 
-    .subheading{
-      line-height: 1.4rem;
-    }
+@media (min-width: 2000px) {
+  .responsivename {
+    line-height: 14.5rem;
+    font-size: 6vw;
   }
+}
 
-  @media (min-width: 1024px) {
-    .responsivename {
-      line-height: 6.5rem;
-    }
+@media (min-width: 3000px) {
+  .responsivename {
+    line-height: 18.5rem;
+    font-size: 4vw;
   }
-
-  @media (min-width: 2000px) {
-    .responsivename {
-      line-height: 14.5rem;
-      font-size:6vw;
-    }
-  }
-
-  @media (min-width: 3000px) {
-    .responsivename {
-      line-height: 18.5rem;
-      font-size:4vw;
-    }
-  }
+}
 
 h1,
 h2,
@@ -129,7 +151,7 @@ p.lead {
   color: #bd5d38;
 }
 
-.modal-header-color{
+.modal-header-color {
   background-color: #bd5d38;
 }
 

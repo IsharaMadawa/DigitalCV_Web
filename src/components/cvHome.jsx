@@ -177,7 +177,9 @@ class cvHome extends Component {
                     >
                       Referees
                     </a>
-                    <CVDownloadModel onDownload={this.downloadFile} />
+                    <div className="cvdownloadPopupMenu">
+                      <CVDownloadModel onDownload={this.downloadFile} />
+                    </div>
                   </li>
                 </ul>
               </div>
@@ -189,7 +191,10 @@ class cvHome extends Component {
                   this.cv_about = section;
                 }}
               >
-                <CVAbout cvDetails={this.state.cvDetails} />
+                <CVAbout
+                  cvDetails={this.state.cvDetails}
+                  onDownload={this.downloadFile}
+                />
               </section>
               <hr className="m-0" />
               <section

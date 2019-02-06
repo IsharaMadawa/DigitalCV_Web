@@ -1,7 +1,9 @@
 import React from "react";
+import CVDownloadModel from "../common/CVDownloadModel";
 
-const CVAbout = ({ cvDetails }) => {
+const CVAbout = ({ cvDetails, onDownload }) => {
   const userCV = cvDetails.data[0];
+
   return (
     <section className="resume-section p-3 p-lg-5 d-flex d-column" id="about">
       <div className="my-auto">
@@ -11,11 +13,16 @@ const CVAbout = ({ cvDetails }) => {
             <span className="text-primary">.</span>
           </h1>
         </div>
-        <div className="subheading hideHedding mb-5">
+        <div className="subheading hideHedding">
           {userCV.user.address} {userCV.user.Mobile}
+        </div>
+        <div className="user-email">
           <a href={"mailto:" + userCV.user.email}>{userCV.user.email}</a>
         </div>
-        <p className="lead mb-5">{userCV.user.myself}</p>
+        <div className="cvdownloadPopupAbout mt-3">
+          <CVDownloadModel onDownload={onDownload} />
+        </div>
+        <p className="lead mb-5 mt-3">{userCV.user.myself}</p>
         <div className="social-icons">
           {userCV.user.blogging.map(blog => (
             <a
