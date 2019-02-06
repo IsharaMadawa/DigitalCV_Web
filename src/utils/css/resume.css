@@ -57,6 +57,14 @@
   @media (min-width: 2000px) {
     .responsivename {
       line-height: 14.5rem;
+      font-size:6vw;
+    }
+  }
+
+  @media (min-width: 3000px) {
+    .responsivename {
+      line-height: 18.5rem;
+      font-size:4vw;
     }
   }
 
