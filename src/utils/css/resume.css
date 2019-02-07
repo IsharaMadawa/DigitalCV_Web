@@ -18,8 +18,10 @@
     display: none;
   }
 
-  .cvdownloadPopupAbout {
+  .cvdownloadPopupAbout .btn {
     display: inline;
+    background-color: #bd5d38;
+    color: #fff;
   }
 }
 
