@@ -36,6 +36,11 @@ const CVProjects = ({ cvDetails }) => {
                 ) : null}
               </h4>
               <p>{proj.details}</p>
+              {proj.github.map(git => (
+                <div key={git} className="mr-auto">
+                  <a href={git}>{git}</a>
+                </div>
+              ))}
             </div>
           </div>
         ))}

@@ -30,7 +30,7 @@ const CVExeprience = ({ cvDetails }) => {
               ))}
             </div>
             <div className="resume-date text-md-right">
-              <span className="text-primary">{exp.duration}</span>
+              <span className="text-primary"><b>{exp.duration}</b></span>
             </div>
           </div>
         ))}

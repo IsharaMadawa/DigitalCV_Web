@@ -87,7 +87,7 @@
 
 @media (min-width: 3000px) {
   .responsivename {
-    line-height: 18.5rem;
+    line-height: 8rem;
     font-size: 4vw;
   }
 }
@@ -243,7 +243,7 @@ section.resume-section .resume-item .resume-date {
     min-height: 100vh;
   }
   section.resume-section .resume-item .resume-date {
-    min-width: 18rem;
+    min-width: 12rem;
   }
 }
 
@@ -255,7 +255,8 @@ section.resume-section .resume-item .resume-date {
 }
 
 .bg-primary {
-  background-color: #bd5d38 !important;
+  /* background-color: #bd5d38 !important; */
+  background-color: #3e3b3b !important;
 }
 
 .text-primary {

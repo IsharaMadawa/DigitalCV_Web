@@ -26,6 +26,7 @@ const CVAbout = ({ cvDetails, onDownload }) => {
         <div className="social-icons">
           {userCV.user.blogging.map(blog => (
             <a
+              className="mt-1"
               key={blog.site}
               href={blog.url}
               target="_blank"
@@ -40,6 +41,7 @@ const CVAbout = ({ cvDetails, onDownload }) => {
           ))}
           {userCV.svn.map(blog => (
             <a
+              className="mt-1"
               key={blog.site}
               href={blog.url}
               target="_blank"
@@ -54,6 +56,7 @@ const CVAbout = ({ cvDetails, onDownload }) => {
           ))}
           {userCV.user.social.map(blog => (
             <a
+              className="mt-1"
               key={blog.site}
               href={blog.url}
               target="_blank"
