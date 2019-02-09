@@ -1,5 +1,5 @@
 import React from "react";
-import CVDownloadModel from "../common/CVDownloadModel";
+// import CVDownloadModel from "../common/CVDownloadModel";
 
 const CVAbout = ({ cvDetails, onDownload }) => {
   const userCV = cvDetails.data[0];
@@ -20,7 +20,13 @@ const CVAbout = ({ cvDetails, onDownload }) => {
           <a href={"mailto:" + userCV.user.email}>{userCV.user.email}</a>
         </div>
         <div className="cvdownloadPopupAbout mt-3">
-          <CVDownloadModel onDownload={onDownload} />
+          {/* <CVDownloadModel onDownload={onDownload} /> */}
+          <input
+            type="button"
+            onClick={onDownload}
+            className="btn btn-light font-weight-bold"
+            value="Download CV"
+          />
         </div>
         <p className="lead mb-5 mt-3">{userCV.user.myself}</p>
         <div className="social-icons">
