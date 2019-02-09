@@ -3,6 +3,93 @@
     padding-top: 0;
     padding-left: 17rem;
   }
+
+  .cvdownloadPopupMenu {
+    display: inline;
+  }
+
+  .cvdownloadPopupAbout {
+    display: none;
+  }
+}
+
+@media (max-width: 992px) {
+  .cvdownloadPopupMenu {
+    display: none;
+  }
+
+  .cvdownloadPopupAbout .btn {
+    display: inline;
+    background-color: #bd5d38;
+    color: #fff;
+  }
+}
+
+#loading-mask {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background: url("../img/loading_mask.gif") no-repeat center white;
+  /* opacity: 0.8; */
+  filter: alpha(opacity=50); /* For IE8 and earlier */
+  text-align: center;
+  padding: 10px;
+  font: normal 16px Tahoma, Geneva, sans-serif;
+  border: 1px solid #666;
+  z-index: 2;
+  overflow: auto;
+}
+
+.responsivename {
+  font-size: 8vw;
+}
+
+.user-email {
+  font-size: 3vw;
+  text-transform: uppercase;
+}
+
+@media (max-width: 992px) {
+  .responsivename {
+    line-height: 4rem;
+  }
+}
+
+@media (max-width: 470px) {
+  .hideHedding {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .responsivename {
+    line-height: 2rem;
+  }
+
+  .subheading {
+    line-height: 1.4rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .responsivename {
+    line-height: 6.5rem;
+  }
+}
+
+@media (min-width: 2000px) {
+  .responsivename {
+    line-height: 14.5rem;
+    font-size: 6vw;
+  }
+}
+
+@media (min-width: 3000px) {
+  .responsivename {
+    line-height: 8rem;
+    font-size: 4vw;
+  }
 }
 
 h1,
@@ -64,6 +151,10 @@ p.lead {
 
 .dev-icons .list-inline-item i:hover {
   color: #bd5d38;
+}
+
+.modal-header-color {
+  background-color: #bd5d38;
 }
 
 #sideNav .navbar-nav .nav-item .nav-link {
@@ -152,7 +243,7 @@ section.resume-section .resume-item .resume-date {
     min-height: 100vh;
   }
   section.resume-section .resume-item .resume-date {
-    min-width: 18rem;
+    min-width: 12rem;
   }
 }
 
@@ -164,7 +255,8 @@ section.resume-section .resume-item .resume-date {
 }
 
 .bg-primary {
-  background-color: #bd5d38 !important;
+  /* background-color: #bd5d38 !important; */
+  background-color: #3e3b3b !important;
 }
 
 .text-primary {
@@ -181,15 +273,15 @@ a:active {
   color: #824027;
 }
 
-#loading-mask {
+/* #loading-mask {
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
   position: fixed;
-  display: block;
+  display: block; */
   /* opacity: 0.7; */
-  background-color: #fff;
+  /* background-color: #fff;
   z-index: 99;
   text-align: center;
 }
@@ -199,4 +291,4 @@ a:active {
   top: 30%;
   left: 40%;
   z-index: 100;
-}
+} */

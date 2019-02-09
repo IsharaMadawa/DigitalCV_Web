@@ -10,7 +10,6 @@ import CVProjects from "./cv/projects";
 import CVReferees from "./cv/referees";
 import CVDownloadModel from "./common/CVDownloadModel";
 import { getUserCVDetails, downloadCV } from "../services/cvService";
-import loadingMask from "./../utils/img/loading_mask.gif";
 import localPhoto from "./../utils/img/profile.png";
 
 class cvHome extends Component {
@@ -178,19 +177,24 @@ class cvHome extends Component {
                     >
                       Referees
                     </a>
-                    <CVDownloadModel onDownload={this.downloadFile} />
+                    <div className="cvdownloadPopupMenu">
+                      <CVDownloadModel onDownload={this.downloadFile} />
+                    </div>
                   </li>
                 </ul>
               </div>
             </nav>
-            <div className="container-fluid p-0">
+            <div id="main-container" className="container-fluid p-0">
               <section
                 className=""
                 ref={section => {
                   this.cv_about = section;
                 }}
               >
-                <CVAbout cvDetails={this.state.cvDetails} />
+                <CVAbout
+                  cvDetails={this.state.cvDetails}
+                  onDownload={this.downloadFile}
+                />
               </section>
               <hr className="m-0" />
               <section
@@ -252,9 +256,7 @@ class cvHome extends Component {
       } else {
         return (
           <div>
-            <div id="loading-mask">
-              <img id="loading-mask-image" src={loadingMask} alt="Loading..." />
-            </div>
+            <div id="loading-mask" />
           </div>
         );
       }

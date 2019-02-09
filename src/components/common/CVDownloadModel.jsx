@@ -49,9 +49,9 @@ class CVDownloadModel extends Component {
           onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal}
           style={customStyles}
-          contentLabel="Example Modal"
+          contentLabel="CV Download Modal"
         >
-          <div className="modal-header bg-success">
+          <div className="modal-header modal-header-color">
             <h5 className="modal-title text-white">Download CV</h5>
             <button
               type="button"

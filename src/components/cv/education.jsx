@@ -17,12 +17,12 @@ const CVEducation = ({ cvDetails }) => {
             <div className="resume-content mr-auto">
               <h3 className="mb-0">
                 {edu.institute}
-                <b className="text-secondary ml-3">{"(" + edu.duration + ")"}</b>
               </h3>
-              <div className="subheading mb-0">{edu.title}</div>
-              <h4 className="mb-5">
+              <b className="text-secondary">{"(" + edu.duration + ")"}</b>
+              <h5>{edu.title}</h5>
+              <h5 className="mb-5">
                 <span className="badge badge-secondary">{edu.marks}</span>
-              </h4>
+              </h5>
               <hr/>
             </div>
           </div>
