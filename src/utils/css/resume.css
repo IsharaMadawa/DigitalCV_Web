@@ -37,7 +37,7 @@
   padding: 10px;
   font: normal 16px Tahoma, Geneva, sans-serif;
   border: 1px solid #666;
-  z-index: 99;
+  z-index: 2;
   overflow: auto;
 }
 
