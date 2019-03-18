@@ -69,18 +69,18 @@ class CVDownloadModel extends Component {
               className="btn btn-primary font-weight-bold mr-5"
               value="Download CV"
             />
-            <input
+            {/* <input
               type="button"
               className="btn btn-primary font-weight-bold"
               value="Genarate CV"
-            />
+            /> */}
           </div>
-          <div className="modal-footer">
+          {/* <div className="modal-footer">
             <p className="text-danger">
               * Genarate CV will create .pdf file based on current details that
               you can see in web page.
             </p>
-          </div>
+          </div> */}
         </Modal>
       </div>
     );
