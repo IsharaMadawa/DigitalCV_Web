@@ -7,9 +7,9 @@
     "certifications": [],
     "awards": [],
     "interest": [
+        "Most recently I\u2019m following on WebRTC, NodeJS, React, Cloud platforms like Heroku, AWS and mobile application development using React native and Ionic4. And development in C++, Web Assembly",
         "I follow a number of sci-fi and fantasy, Animation genre movies and television shows, music, even cooking :D. and I spend a large amount of my free time exploring the latest technology in the web and mobile development world. And testing things for fun.",
-        "Apart from being a developing stuff, I enjoy my time being outdoors. Riding bike, Traveling, etc.",
-        "Most recently I\u2019m following on WebRTC, NodeJS, React, Cloud platforms like heroku, AWS and mobile application development using react native and Flutter. And i have interest in fields like WebAssembly."
+        "Apart from being a developing stuff, I enjoy my time being outdoors. Riding bike, Traveling, etc."
     ],
     "user": {
         "mobile": [
@@ -136,6 +136,13 @@
         }
     ],
     "education": [
+        {
+            "institute": "University of Colombo School of Computing",
+            "title": "Reading Masters in Computer Science",
+            "details": "",
+            "marks": "",
+            "duration": "2019 Starting Batch"
+        },
         {
             "_id": {
                 "$oid": "5c559f1f97954500162d260d"
@@ -304,9 +311,31 @@
                 "$oid": "5c559f1f97954500162d261b"
             },
             "name": "Wjhtna",
-            "title": "Compleate System for track progress students individually in ZHO",
+            "title": "Zayed Higher Organization,UAE",
             "company": "ZHO",
-            "details": "Track progress of students that have disabilities in Zayed Higher Organization. Create several plans between students, parents and teachers and management. Wjhtna is collection of separate systems under one domain.",
+            "details": "Track progress of education, assessment and health of students that have disabilities in Zayed Higher Organization, UAE. Create and monitoring plans between students, parents and teachers and management",
+            "MostReasonHighlights": true
+        },
+        {
+            "github": [],
+            "_id": {
+                "$oid": "5c559f1f97954500162d261a"
+            },
+            "name": "WJHTNA API",
+            "title": "Zayed Higher Organization, UAE",
+            "company": "ZHO",
+            "details": "API layer for expose internal resources and details to other government entities in UAE.(Integration between all the government services).",
+            "MostReasonHighlights": true
+        },
+        {
+            "github": [],
+            "_id": {
+                "$oid": "5c559f1f97954500162d261a"
+            },
+            "name": "3/12",
+            "title": "Zayed Higher Organization, UAE",
+            "company": "ZHO",
+            "details": "Web app and API layer between hospitals and ZHO for sharing records for early detection of students that have disabilities in Abu Dhabi.",
             "MostReasonHighlights": true
         },
         {
