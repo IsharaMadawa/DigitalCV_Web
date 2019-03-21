@@ -22,7 +22,7 @@ class LoginForm extends Form {
             await auth.login(data.username, data.password);
 
             const { state } = this.props.location;
-            window.location = state ? state.from.pathname : "/";
+            window.location = state ? state.from.pathname : "/userProfile";
         }
         catch (ex) {
             if (ex.response && ex.response.status === 400) {
@@ -35,7 +35,7 @@ class LoginForm extends Form {
 
     render() {
 
-        if (auth.getCurrentUser()) return <Redirect to="/" />
+        if (auth.getCurrentUser()) return <Redirect to="/userProfile" />
 
         return (
             <div>

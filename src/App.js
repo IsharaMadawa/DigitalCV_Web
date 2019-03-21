@@ -4,6 +4,7 @@ import { ToastContainer } from "react-toastify";
 import { HotKeys } from "react-hotkeys";
 import NavBar from "./components/navBar";
 import Movies from "./components/movies";
+import UserProfile from "./components/userProfile";
 import cvHome from "./components/cvHome";
 import LoginForm from "./components/loginForm";
 import MovieForm from "./components/movieForm";
@@ -21,7 +22,15 @@ class App extends Component {
   componentDidMount() {
     const user = auth.getCurrentUser();
 
-    this.setState({ user, showAdminNav: false });
+    //Update admin navbar state from localstorage
+    let serializedAdminState = localStorage.getItem(
+      "https://isharamadawa.herokuap.com:adminstate"
+    );
+    if (serializedAdminState === null || serializedAdminState === "false") {
+      this.setState({ user, showAdminNav: false });
+    } else {
+      this.setState({ user, showAdminNav: true });
+    }
   }
 
   render() {
@@ -31,11 +40,20 @@ class App extends Component {
 
     const handlers = {
       SHOW_ADMIN: event => {
+        let serializedAdminState = false;
         if (!this.state.showAdminNav) {
           this.setState({ showAdminNav: true });
+          serializedAdminState = JSON.stringify(true);
         } else {
           this.setState({ showAdminNav: false });
+          serializedAdminState = JSON.stringify(false);
         }
+
+        //Save admin navbar state in localstorage
+        localStorage.setItem(
+          "https://isharamadawa.herokuap.com:adminstate",
+          serializedAdminState
+        );
       }
     };
 
@@ -54,6 +72,7 @@ class App extends Component {
                   <Route path="/login" component={LoginForm} />
                   <Route path="/logout" component={Logout} />
                   <Route path="/cv" component={cvHome} />
+                  <Route path="/userProfile" component={UserProfile} />
                   <ProtectedRoute path="/movies/:id" component={MovieForm} />
                   <Route
                     path="/movies"
