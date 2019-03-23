@@ -1,10 +1,9 @@
 import React, { Component } from "react";
-import { Route, Link } from "react-router-dom";
+import { Route, Redirect, Link, Switch } from "react-router-dom";
 import CVProfile from "./userProfile/cvProfile";
 import Settings from "./userProfile/settings";
 
 class Admin extends Component {
-
   render() {
     return (
       <div id="admin-container">
@@ -26,16 +25,23 @@ class Admin extends Component {
           <div className="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <Link className="nav-link" to={"/Admin/CVProfile"}>Edit Profile</Link>
+                <Link className="nav-link" to={"/Admin/CVProfile"}>
+                  Edit Profile
+                </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to={"/Admin/Settings"}>Settings</Link>
+                <Link className="nav-link" to={"/Admin/Settings"}>
+                  Settings
+                </Link>
               </li>
             </ul>
           </div>
         </nav>
-        <Route path={"/Admin/CVProfile"} component={CVProfile} />
-        <Route path={"/Admin/Settings"} component={Settings} />
+        <Switch>
+          <Route path={"/Admin/CVProfile"} component={CVProfile} />
+          <Route path={"/Admin/Settings"} component={Settings} />
+          <Redirect from="/Admin" exact to="/Admin/CVProfile" />
+        </Switch>
       </div>
     );
   }
