@@ -4,7 +4,7 @@ import { ToastContainer } from "react-toastify";
 import { HotKeys } from "react-hotkeys";
 import NavBar from "./components/navBar";
 import Movies from "./components/movies";
-import UserProfile from "./components/userProfile";
+import Admin from "./components/Admin";
 import cvHome from "./components/cvHome";
 import LoginForm from "./components/loginForm";
 import MovieForm from "./components/movieForm";
@@ -58,7 +58,6 @@ class App extends Component {
     };
 
     const { user } = this.state;
-
     return (
       <React.Fragment>
         <ToastContainer />
@@ -72,7 +71,7 @@ class App extends Component {
                   <Route path="/login" component={LoginForm} />
                   <Route path="/logout" component={Logout} />
                   <Route path="/cv" component={cvHome} />
-                  <Route path="/userProfile" component={UserProfile} />
+                  <ProtectedRoute path="/Admin" component={Admin} />
                   <ProtectedRoute path="/movies/:id" component={MovieForm} />
                   <Route
                     path="/movies"

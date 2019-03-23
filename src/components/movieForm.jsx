@@ -70,9 +70,9 @@ class MovieFrom extends Form {
   render() {
     return (
       <div>
-        <h1>Register Form</h1>
+        <h1>Edit Form</h1>
         <form onSubmit={this.handleSubmit}>
-          {this.renderInput("title", "Moview Name")}
+          {this.renderInput("title", "Movie Name")}
           {this.renderSelect("genreId", "Ganre", this.state.genres)}
           {this.renderInput("dailyRentalRate", "Daily Retal")}
           {this.renderInput("numberInStock", "No. In Stock")}

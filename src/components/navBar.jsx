@@ -32,8 +32,8 @@ const NavBar = ({ user }) => {
               <NavLink className="nav-item nav-link" to="/movies">
                 Test Temp
               </NavLink>
-              <NavLink className="nav-item nav-link" to="/userProfile">
-                CV Profile
+              <NavLink className="nav-item nav-link" to="/Admin">
+                Admin Dashboared
               </NavLink>
               <NavLink className="nav-item nav-link" to="/">
                 {user.name}
