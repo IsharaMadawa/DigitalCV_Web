@@ -65,7 +65,7 @@ class App extends Component {
         <HotKeys keyMap={keyMap}>
           <div>
             <HotKeys handlers={handlers}>
-              <main className="container">
+              <main className="">
                 <Switch>
                   <Route path="/register" component={RegisterFrom} />
                   <Route path="/login" component={LoginForm} />

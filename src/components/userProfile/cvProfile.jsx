@@ -1,23 +1,36 @@
 import React, { Component } from "react";
 import Tabs from "../common/Tabs";
+import General from "./eidtProfile/general";
+import Social from "./eidtProfile/social";
+import Experience from "./eidtProfile/Experience";
+import { getUserCVDetails } from "../../services/cvService";
 
 class CVProfile extends Component {
+  state = {
+    cvDetails: []
+  };
+
+  
+  async componentDidMount() {
+    const cvDetails = await getUserCVDetails();
+    this.setState({ cvDetails });
+  }
+
   render() {
     return (
-      <div className="row">
-        <h1>Profile Page</h1>
+      <React.Fragment>
         <Tabs>
-          <div label="Gator">
-            See ya later, <em>Alligator</em>!
+          <div label="General">
+            <General />
           </div>
-          <div label="Croc">
-            After 'while, <em>Crocodile</em>!
+          <div label="Social">
+            <Social cvDetails={this.state.cvDetails}/>
           </div>
-          <div label="Sarcosuchus">
-            Nothing to see here, this tab is <em>extinct</em>!
+          <div label="Experience">
+            <Experience />
           </div>
         </Tabs>
-      </div>
+      </React.Fragment>
     );
   }
 }
