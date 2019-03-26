@@ -287,6 +287,8 @@ a:focus,
 a:active {
   color: #824027;
 }
+
+
 /* Admin Dashboard */
 .tab-list {
   border-bottom: 1px solid #ccc;
@@ -304,4 +306,11 @@ a:active {
   background-color: white;
   border: solid #ccc;
   border-width: 1px 1px 0 1px;
+}
+
+
+/* Admin Nav-bar */
+.admin-nav{
+  position: fixed;
+  width: 100%;
 }
