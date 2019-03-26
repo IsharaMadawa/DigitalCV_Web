@@ -194,7 +194,6 @@ class cvHome extends Component {
               <div>
                 <ins
                   className="adsbygoogle"
-                  style="display:block"
                   data-ad-client="ca-pub-1587913027252111"
                   data-ad-slot="9313901329"
                   data-ad-format="auto"
