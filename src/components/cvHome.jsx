@@ -191,6 +191,19 @@ class cvHome extends Component {
                   </ul>
                 </div>
               </nav>
+              <div>
+                <ins
+                  className="adsbygoogle"
+                  style="display:block"
+                  data-ad-client="ca-pub-1587913027252111"
+                  data-ad-slot="9313901329"
+                  data-ad-format="auto"
+                  data-full-width-responsive="true"
+                />
+                <script>
+                  (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+              </div>
               <div id="main-container" className="container-fluid p-0">
                 <section
                   className=""
