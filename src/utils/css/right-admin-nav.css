@@ -1,5 +1,6 @@
 .navbar.admin-fixed-left {
   position: fixed;
+  height: 100%;
   top: 0;
   left: 0;
   right: 0;
@@ -9,6 +10,8 @@
 @media (min-width: 768px) {
   #admin-container {
     margin-left: 270px;
+    margin-right: 20px;
+    padding-top: 70px;
   }
 
   .navbar.admin-fixed-left {

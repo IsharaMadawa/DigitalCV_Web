@@ -3,16 +3,16 @@ import Tabs from "../common/Tabs";
 import General from "./eidtProfile/general";
 import Social from "./eidtProfile/social";
 import Experience from "./eidtProfile/Experience";
-import { getUserCVDetails } from "../../services/cvService";
+import { getUserProfiles } from "../../services/cvService";
 
-class CVProfile extends Component {
+class UserProfiles extends Component {
   state = {
     cvDetails: []
   };
 
   
   async componentDidMount() {
-    const cvDetails = await getUserCVDetails();
+    const cvDetails = await getUserProfiles();
     this.setState({ cvDetails });
   }
 
@@ -35,4 +35,4 @@ class CVProfile extends Component {
   }
 }
 
-export default CVProfile;
+export default UserProfiles;

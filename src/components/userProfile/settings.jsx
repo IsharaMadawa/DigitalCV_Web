@@ -4,7 +4,7 @@ class Settings extends Component {
   render() {
     return (
       <div className="row">
-        <h1>Settings Page</h1>
+        <h3>Settings Page</h3>
       </div>
     );
   }

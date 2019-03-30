@@ -1,9 +1,12 @@
 import React, { Component } from "react";
-import { Route, Redirect, Link, Switch } from "react-router-dom";
+import { Redirect, Link, Switch } from "react-router-dom";
+import ProtectedRoute from "../components/common/protectedRoute";
 import CVProfile from "./userProfile/cvProfile";
+import UserProfiles from "./userProfile/userProfiles";
 import Settings from "./userProfile/settings";
 
 class Admin extends Component {
+
   render() {
     return (
       <div id="admin-container">
@@ -30,6 +33,11 @@ class Admin extends Component {
                 </Link>
               </li>
               <li className="nav-item">
+                <Link className="nav-link" to={"/Admin/UserProfiles"}>
+                  All CV Profiles
+                </Link>
+              </li>
+              <li className="nav-item">
                 <Link className="nav-link" to={"/Admin/Settings"}>
                   Settings
                 </Link>
@@ -38,8 +46,12 @@ class Admin extends Component {
           </div>
         </nav>
         <Switch>
-          <Route path={"/Admin/CVProfile"} component={CVProfile} />
-          <Route path={"/Admin/Settings"} component={Settings} />
+          <ProtectedRoute path={"/Admin/CVProfile"} component={CVProfile} />
+          <ProtectedRoute
+            path={"/Admin/UserProfiles"}
+            component={UserProfiles}
+          />
+          <ProtectedRoute path={"/Admin/Settings"} component={Settings} />
           <Redirect from="/Admin" exact to="/Admin/CVProfile" />
         </Switch>
       </div>

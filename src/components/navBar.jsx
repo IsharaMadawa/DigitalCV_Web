@@ -29,9 +29,9 @@ const NavBar = ({ user }) => {
           )}
           {user && (
             <React.Fragment>
-              <NavLink className="nav-item nav-link" to="/movies">
+              {/* <NavLink className="nav-item nav-link" to="/movies">
                 Test Temp
-              </NavLink>
+              </NavLink> */}
               <NavLink className="nav-item nav-link" to="/Admin">
                 Admin Dashboared
               </NavLink>
