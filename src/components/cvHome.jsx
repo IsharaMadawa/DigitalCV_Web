@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
 import scrollToComponent from "react-scroll-to-component";
 import { saveAs } from "file-saver";
 import CVAbout from "./cv/about";
@@ -19,12 +20,25 @@ class cvHome extends Component {
   };
 
   async componentDidMount() {
-    const cvDetails = await getUserCVDetails();
-    let profilePicture = cvDetails.data[0].user.profileImage.filter(
-      x => x.isActive === true
-    )[0];
-    profilePicture =
-      profilePicture.isLocal === true ? localPhoto : profilePicture.path;
+    let profilePicture = null;
+    let cvDetails = [];
+    try {
+      cvDetails = await getUserCVDetails();
+    } catch (ex) {
+      if (ex.response && ex.response.status === 404)
+        return <Redirect to="/error" />;
+    }
+
+    if (cvDetails.data[0].user.profileImage.lenght > 0) {
+      profilePicture = cvDetails.data[0].user.profileImage.filter(
+        x => x.isActive === true
+      )[0];
+      profilePicture =
+        profilePicture.isLocal === true ? localPhoto : profilePicture.path;
+    } else {
+      profilePicture = localPhoto;
+    }
+
     scrollToComponent(this.cv_about, {
       offset: 0,
       align: "top",

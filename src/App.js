@@ -9,6 +9,7 @@ import cvHome from "./components/cvHome";
 import LoginForm from "./components/loginForm";
 import MovieForm from "./components/movieForm";
 import RegisterFrom from "./components/registerForm";
+import AppError from "./components/AppError";
 import NotFound from "./components/notFound";
 import Logout from "./components/logout";
 import ProtectedRoute from "./components/common/protectedRoute";
@@ -79,6 +80,7 @@ class App extends Component {
                       <Movies {...props} user={this.state.user} />
                     )}
                   />
+                  <Route path="/error" component={AppError} />
                   <Route path="/not-found" component={NotFound} />
                   <Redirect from="/" exact to="/cv" />
                   <Redirect exact to="/not-found" />
