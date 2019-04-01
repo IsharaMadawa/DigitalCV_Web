@@ -4,15 +4,16 @@ import { getUserProfiles, setDefaultProfile } from "../../services/cvService";
 
 class UserProfiles extends Component {
   state = {
-    profilesData: []
+    profilesData: [],
+    isUpdated: false
   };
 
   async componentDidMount() {
     const profiles = await getUserProfiles();
-    this.setState({ profilesData: profiles.data });
+    this.setState({ profilesData: profiles });
   }
 
-  async toggleSelectDefault(_id) {
+  async toggleDefault(_id) {
     if (window.confirm("Are you sure you want to chenge defauld profile?")) {
       try {
         await setDefaultProfile(_id);
@@ -21,67 +22,76 @@ class UserProfiles extends Component {
       }
 
       toast.success("Default Profile Update Successful.");
+      this.setState({ isUpdated: true });
     } else {
       toast.info("Operation Canceled.");
     }
   }
 
+  async componentDidUpdate() {
+    if (this.state.isUpdated === true) {
+      const newProfiles = await getUserProfiles();
+      this.setState({ profilesData: newProfiles, isUpdated: false });
+    }
+  }
+
   render() {
-    return (
-      <React.Fragment>
-        <div>
-          <table className="table">
-            <thead className="thead-dark">
-              <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Create Date</th>
-                <th scope="col">Last Updated Date</th>
-                <th scope="col">Default Profile</th>
-                <th scope="col">Update</th>
-                <th scope="col">Delete</th>
-              </tr>
-            </thead>
-            <tbody>
-              {this.state.profilesData.map(prof => (
-                <tr key={prof._id}>
-                  <th scope="row">{prof._id}</th>
-                  <td>{prof.createdDate}</td>
-                  <td>{prof.lastUpdatedDate}</td>
-                  <td align="center">
-                    {prof.defaultProfile === true ? (
-                      <input
-                        name="defaultProfileCheck"
-                        type="radio"
-                        aria-label="Checkbox for following text input"
-                        onChange={() => this.toggleSelectDefault(prof._id)}
-                        defaultChecked
-                      />
-                    ) : (
-                      <input
-                        name="defaultProfileCheck"
-                        type="radio"
-                        aria-label="Checkbox for following text input"
-                        onChange={() => this.toggleSelectDefault(prof._id)}
-                      />
-                    )}
-                  </td>
-                  <td>
-                    <button type="button" className="btn btn-warning">
-                      Update
-                    </button>
-                  </td>
-                  <td>
-                    <button type="button" className="btn btn-danger">
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </React.Fragment>
-    );
+    if (this.state.profilesData !== null) {
+      if (this.state.profilesData.data) {
+        return (
+          <React.Fragment>
+            <div>
+              <table className="table">
+                <thead className="thead-dark">
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Create Date</th>
+                    <th scope="col">Last Updated Date</th>
+                    <th scope="col">Default Profile</th>
+                    <th scope="col">Update</th>
+                    <th scope="col">Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {this.state.profilesData.data.map(prof => (
+                    <tr key={prof._id}>
+                      <th scope="row">{prof._id}</th>
+                      <td>{prof.createdDate}</td>
+                      <td>{prof.lastUpdatedDate}</td>
+                      <td align="center">
+                        <input
+                          name="defaultProfileCheck"
+                          type="checkbox"
+                          aria-label="Checkbox for following text input"
+                          onChange={() => this.toggleDefault(prof._id)}
+                          checked={prof.defaultProfile}
+                        />
+                      </td>
+                      <td>
+                        <button type="button" className="btn btn-warning">
+                          Update
+                        </button>
+                      </td>
+                      <td>
+                        <button type="button" className="btn btn-danger">
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </React.Fragment>
+        );
+      } else {
+        return (
+          <div>
+            <div id="loading-mask" />
+          </div>
+        );
+      }
+    }
   }
 }
 
