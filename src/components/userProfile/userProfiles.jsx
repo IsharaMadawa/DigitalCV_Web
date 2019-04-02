@@ -41,6 +41,12 @@ class UserProfiles extends Component {
         return (
           <React.Fragment>
             <div>
+              <button
+                type="button"
+                className="btn btn-success float-right mb-2"
+              >
+                <i className="far fa-newspaper mr-2"></i> Create New Profile
+              </button>
               <table className="table">
                 <thead className="thead-dark">
                   <tr>
@@ -69,12 +75,12 @@ class UserProfiles extends Component {
                       </td>
                       <td>
                         <button type="button" className="btn btn-warning">
-                          Update
+                        <i className="fas fa-user-edit mr-2"></i>Update
                         </button>
                       </td>
                       <td>
                         <button type="button" className="btn btn-danger">
-                          Delete
+                        <i className="fas fa-dumpster mr-2"></i>Delete
                         </button>
                       </td>
                     </tr>

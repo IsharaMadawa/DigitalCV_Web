@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Redirect, Link, Switch } from "react-router-dom";
 import ProtectedRoute from "../components/common/protectedRoute";
-import CVProfile from "./userProfile/cvProfile";
 import UserProfiles from "./userProfile/userProfiles";
 import Settings from "./userProfile/settings";
 
@@ -28,11 +27,6 @@ class Admin extends Component {
           <div className="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <Link className="nav-link" to={"/Admin/CVProfile"}>
-                  Edit Profile
-                </Link>
-              </li>
-              <li className="nav-item">
                 <Link className="nav-link" to={"/Admin/UserProfiles"}>
                   All CV Profiles
                 </Link>
@@ -46,7 +40,6 @@ class Admin extends Component {
           </div>
         </nav>
         <Switch>
-          <ProtectedRoute path={"/Admin/CVProfile"} component={CVProfile} />
           <ProtectedRoute
             path={"/Admin/UserProfiles"}
             component={UserProfiles}
