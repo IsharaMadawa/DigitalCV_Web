@@ -15,3 +15,7 @@ export function downloadCV() {
 export function setDefaultProfile(profileId) {
   return http.put("usercvdetails/setDefaultProfile/" + profileId);
 }
+
+export function createProfile(profile) {
+  return http.post("/usercvdetails", profile);
+}

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Joi from "joi-browser";
 import Input from "./input";
 import Select from "./select";
+import Textarea from "./textarea";
 
 class Form extends Component {
   state = {
@@ -61,9 +62,32 @@ class Form extends Component {
     );
   }
 
-  renderButton(label) {
+  renderTextarea(name, label) {
+    const { data, errors } = this.state;
     return (
-      <button disabled={this.validate()} className="btn btn-primary">
+      <Textarea
+        name={name}
+        value={data[name]}
+        lable={label}
+        onChange={this.handleChange}
+        error={errors[name]}
+      />
+    );
+  }
+
+  renderButton(label, classes, icon, click) {
+    return (
+      <button type="button" className={classes} onClick={click}>
+        {icon !== null ? <i className={icon + " mr-2"} /> : null}
+        {label}
+      </button>
+    );
+  }
+
+  renderSubmitButton(label, classes, icon) {
+    return (
+      <button type="submit" disabled={this.validate()} className={classes}>
+        {icon !== null ? <i className={icon + " mr-2"} /> : null}
         {label}
       </button>
     );
@@ -73,15 +97,15 @@ class Form extends Component {
     const { data, errors } = this.state;
     return (
       <Select
-      items={items}
-      value = {data[name]}
-      name={name}
-      lable={label}
-      onChange={this.handleChange}
-      error={errors[name]} />
+        items={items}
+        value={data[name]}
+        name={name}
+        lable={label}
+        onChange={this.handleChange}
+        error={errors[name]}
+      />
     );
   }
-
 }
 
 export default Form;

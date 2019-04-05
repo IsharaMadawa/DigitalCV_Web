@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import { toast } from "react-toastify";
 import { getUserProfiles, setDefaultProfile } from "../../services/cvService";
+import CreateProfileForm from "../userProfile/eidtProfile/createProfileForm";
 
 class UserProfiles extends Component {
   state = {
     profilesData: [],
-    isUpdated: false
+    isUpdated: false,
+    isCreateForm: false
   };
 
   async componentDidMount() {
@@ -14,19 +16,23 @@ class UserProfiles extends Component {
   }
 
   async toggleDefault(_id) {
-    if (window.confirm("Are you sure you want to chenge defauld profile?")) {
+    if (window.confirm("Are you sure you want to change default profile?")) {
       try {
         await setDefaultProfile(_id);
       } catch (ex) {
         if (ex.response && ex.response.status === 404) toast.error(ex.message);
       }
 
-      toast.success("Default Profile Update Successful.");
+      toast.success("Default Profile Update Successful..!");
       this.setState({ isUpdated: true });
     } else {
       toast.info("Operation Canceled.");
     }
   }
+
+  toggleCreateProfile = val => {
+    this.setState({ isCreateForm: val });
+  };
 
   async componentDidUpdate() {
     if (this.state.isUpdated === true) {
@@ -35,19 +41,34 @@ class UserProfiles extends Component {
     }
   }
 
+  onSubmitHandler() {
+    this.setState({ isCreateForm: false });
+    toast.success("Create New Profile Successful..!");
+  }
+
   render() {
     if (this.state.profilesData !== null) {
       if (this.state.profilesData.data) {
         return (
           <React.Fragment>
-            <div></div>
+            {this.state.isCreateForm ? (
+              <div>
+                <CreateProfileForm
+                  onCancel={this.toggleCreateProfile}
+                  onSubmit={this.onSubmitHandler}
+                />
+              </div>
+            ) : null}
             <div>
-              <button
-                type="button"
-                className="btn btn-success float-right mb-2"
-              >
-                <i className="far fa-newspaper mr-2"></i> Create New Profile
-              </button>
+              {!this.state.isCreateForm ? (
+                <button
+                  type="button"
+                  className="btn btn-success float-right mb-2"
+                  onClick={() => this.toggleCreateProfile(true)}
+                >
+                  <i className="far fa-newspaper mr-2" /> Create New Profile
+                </button>
+              ) : null}
               <table className="table">
                 <thead className="thead-dark">
                   <tr>
@@ -76,12 +97,14 @@ class UserProfiles extends Component {
                       </td>
                       <td>
                         <button type="button" className="btn btn-warning">
-                        <i className="fas fa-user-edit mr-2"></i>Update
+                          <i className="fas fa-user-edit mr-2" />
+                          Update
                         </button>
                       </td>
                       <td>
                         <button type="button" className="btn btn-danger">
-                        <i className="fas fa-dumpster mr-2"></i>Delete
+                          <i className="fas fa-dumpster mr-2" />
+                          Delete
                         </button>
                       </td>
                     </tr>
