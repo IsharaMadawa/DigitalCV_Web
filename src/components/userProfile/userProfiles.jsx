@@ -37,14 +37,18 @@ class UserProfiles extends Component {
   async componentDidUpdate() {
     if (this.state.isUpdated === true) {
       const newProfiles = await getUserProfiles();
-      this.setState({ profilesData: newProfiles, isUpdated: false });
+      this.setState({
+        profilesData: newProfiles,
+        isUpdated: false,
+        isCreateForm: false
+      });
     }
   }
 
-  onSubmitHandler() {
-    this.setState({ isCreateForm: false });
+  submitformHandler = val => {
     toast.success("Create New Profile Successful..!");
-  }
+    this.setState({ isUpdated: val });
+  };
 
   render() {
     if (this.state.profilesData !== null) {
@@ -55,7 +59,7 @@ class UserProfiles extends Component {
               <div>
                 <CreateProfileForm
                   onCancel={this.toggleCreateProfile}
-                  onSubmit={this.onSubmitHandler}
+                  afterSubmit={this.submitformHandler}
                 />
               </div>
             ) : null}

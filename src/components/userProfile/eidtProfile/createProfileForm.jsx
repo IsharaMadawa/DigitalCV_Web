@@ -1,5 +1,6 @@
 import React from "react";
 import Joi from "joi-browser";
+import { toast } from "react-toastify";
 import Form from "../../common/Form";
 import { createProfile } from "../../../services/cvService";
 
@@ -47,9 +48,16 @@ class CreateProfileForm extends Form {
       .label("My Self")
   };
 
-  doSubmit = () => {
-    createProfile(this.state.data);
-  };
+  async doSubmit() {
+    try {
+      const res = await createProfile(this.state.data);
+      if (res && res.status === 200) {
+        this.props.afterSubmit(true);
+      }
+    } catch (ex) {
+      if (ex.response && ex.response.status === 404) toast.error(ex.message);
+    }
+  }
 
   render() {
     return (
