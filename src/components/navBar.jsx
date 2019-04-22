@@ -32,7 +32,7 @@ const NavBar = ({ user }) => {
               {/* <NavLink className="nav-item nav-link" to="/movies">
                 Test Temp
               </NavLink> */}
-              <NavLink className="nav-item nav-link" to="/Admin">
+              <NavLink className="nav-item nav-link" to="/Admin/UserProfiles">
                 Admin Dashboared
               </NavLink>
               <NavLink className="nav-item nav-link" to="/">

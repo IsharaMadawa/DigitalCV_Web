@@ -10,7 +10,7 @@ class Admin extends Component {
     return (
       <div id="admin-container">
         <nav className="navbar navbar-expand-md navbar-dark bg-primary admin-fixed-left">
-          <a className="navbar-brand" href="/Admin">
+          <a className="navbar-brand" href="/Admin/UserProfiles">
             Admin Dashboard
           </a>
           <button

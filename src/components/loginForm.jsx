@@ -34,7 +34,7 @@ class LoginForm extends Form {
   };
 
   render() {
-    if (auth.getCurrentUser()) return <Redirect to="/Admin" />;
+    if (auth.getCurrentUser()) return <Redirect to="/Admin/UserProfiles" />;
 
     return (
       <div>
